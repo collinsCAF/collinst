@@ -26,7 +26,166 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/about.css" rel="stylesheet">
+  <style>
 
+    /* Reset some basic styling */
+body, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Responsive container */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* About section styling */
+.about-section {
+    background-color: #f9f9f9;
+    padding: 50px 0;
+}
+
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.about-text {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.about-text h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.about-text p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.about-images {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-images img {
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Mission and Vision section styling */
+.mission-vision-section {
+    background-color: #fff;
+    padding: 50px 0;
+}
+
+.mission-vision-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.mission, .vision {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.mission h2, .vision h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.mission p, .vision p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* Collaborators section styling */
+.collaborators-section {
+    background-color: #f9f9f9;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.collaborators-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.collaborator {
+    flex: 1;
+    max-width: 300px;
+    margin: 20px;
+    text-align: center;
+}
+
+.collaborator img {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.collaborator h3 {
+    font-size: 22px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.collaborator p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Responsive design for smaller screens */
+@media screen and (max-width: 768px) {
+    .about-content, .mission-vision-content {
+        flex-direction: column;
+    }
+
+    .about-text, .mission, .vision, .about-images {
+        margin: 0;
+        flex: none;
+    }
+
+    .about-text h1, .mission h2, .vision h2 {
+        font-size: 28px;
+    }
+
+    .about-text p, .mission p, .vision p {
+        font-size: 16px;
+    }
+
+    .about-images img, .collaborator img {
+        max-width: 100%;
+    }
+
+    .collaborators-content {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+</style>
   
 </head>
 
@@ -67,100 +226,87 @@
    
   </div>
 
-  <main id="main">
-    <div class="one">
-    <!--<img id="body" src="assets/img/about/1.png">-->  
-    </div>
-    <div class="two">
-     <!-- <img id="body" src="assets/img/about/2.png">-->  
-    </div>
-    <div class="three">
-     <!-- <img id="body" src="assets/img/about/3.png">-->  
-    </div>
-    <div class="four">
-      <button type="submit" id="button" class="block magenta margin-auto">EXPLORE</button>
-    </div>
-    <br><br>
-    <h1> our vision</h1>
-    <div class="four">
-      <img id="body" src="assets/img/about/4.png">
-    </div>
+  <section class="about-section">
+    <div class="container">
+        <div class="about-content">
+            <div class="about-text" data-aos="fade-right">
+             
+                <p>
+                   <strong> COLLINS ARALU FOUNDATION</strong>  Facilitate the development of our local communities in nigeria and in africa at 
+                    laerge through an inclusive community-base food sustainability project. We are out to help our local 
+                    communities irrespective  of gender or religion. We make positive influence in the communities through empowering
+                    the society. We work for society where <strong> PEACE AND EQUITY will flourish.</strong> K & C Foundation fosters holistic mentorship
+                    and human development without any arrier or financial hindrance 
 
-
-    <!--======= Contact Section ========= -->
-    <section id="contact" class="contact">
-      <div class="container">
-
-        <div class="row">
-          
-          <div class="col-lg-4 d-flex flex-column justify-contents-center" data-aos="fade-left">
-            <div class="content pt-4 pt-lg-0">
-              <h3>Help everyone discover the joy of living and join us in our efforts to put Every Child in School.</h3>
-              <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              </p>
-              <h4>Volunteer Benefits</h4>
-
-              <p>As a volunteer you will get benefit from:</p>
-              <ol>
-                <li><b>Training</b> - get discounted rates on your unique training courses.</li>
-                <li><b>Events</b> - recieved discounted tickets and invitations to members-only events</li>
-                <li><b>Community</b> - share knowledge and best practices with peers.</li>
-                <li><b>Networking</b> - talk to right people when you need to.</li>
-                <li><b>Expertise</b> - access Bond groups, best tools and resources.</li>
-              </ol>
-              
+            </p>
+                <p>
+                    With years of experience in the industry, our team is dedicated to helping you achieve your goals 
+                    through innovative solutions tailored to your needs. Join us on this journey to excellence.
+                </p>
             </div>
-          </div>
-          <div class="col-lg-3"></div>
-          <div class="col-lg-3" data-aos="zoom-in">
-            <div class="text-center"><h2>Become A Volunteer</h2></div>
-              
-            <div class="col-lg-7 mt-5 mt-lg-0 text-center d-flex align-items-stretch" data-aos="fade-left">
-              
-              <form action="" method="post" role="form" class="php-email-form">
-                
-                <div class="row">
-                  
-                  <div class="form-group">
-                    <input type="text" name="name" placeholder="Fullname" class="form-control" id="name" required>
-                  </div>
-                  <br>
-                  <div class="form-group">
-                    <input type="email" class="form-control" name="email" placeholder="Email address" id="email" required>
-                  </div>
-                
-                <br>
-                <div class="form-group">
-                   <input type="text" name="name" placeholder="Phone Number" class="form-control" id="name" required>
-                </div>
-                <br>
-                <div class="form-group">
-                 <input type="email" class="form-control" name="email" placeholder="Address" id="email" required>
-                </div>
-                <br>
-                <div class="form-group">
-                  <input type="email" class="form-control" name="email" placeholder="Gender" id="email" required>
-                </div>
-                <br>
-                <div class="form-group">
-                  <input type="file" id="myFile" name="filename">
-                  
-                </div>
-                </div>
-                
-                <div><button type="submit">ENROLL</button></div>
-              </form>
-            </div>
-          </div>
+            <div class="about-images" data-aos="fade-left">
+                <img src="https://leadership.ng/wp-content/uploads/2022/06/child-right.jpg" alt="Our Team">
+             <!--   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRF7p2dDj2pPsEYCFDgYh3zDHZTT7zAJXi4g&s" alt="Our Office">
+        -->    </div>
         </div>
+    </div>
+</section>
 
-      </div>
-    </section>
-	
+<section class="mission-vision-section">
+    <div class="container">
+        <div class="mission-vision-content">
+            <div class="mission" data-aos="fade-up">
+                <h2>Our Mission</h2>
+                <p>
+                    Our vision is to promote healthy society and a peaceful world at large by
+empowering children and youth, the less privileged and orphans and widows
+through community-based sustainability projects, skills, quality education,
+mentorship and scholarship, equity and diversity. We promote the restoration
+of our local communities, create job opportunities, provide healthy food
+system and with our collective community efforts we create sustainable
+environment around us through promotion of agriculture.
+                </p>
+            </div>
+            <div class="vision" data-aos="fade-up">
+                <h2>Our Vision</h2>
+                <p>
+                    Our vision is to promote healthy society and a peaceful world at large by
+empowering children and youth, the less privileged and orphans and widows
+through community-based sustainability projects, skills, quality education,
+mentorship and scholarship, equity and diversity. We promote the restoration
+of our local communities, create job opportunities, provide healthy food
+system and with our collective community efforts we create sustainable
+environment around us through promotion of agriculture.
+                 </p>
+            </div>
+        </div>
+    </div>
+</section>
 
-  </main><!-- End #main -->
-
+<section class="collaborators-section">
+    <div class="container">
+        <h2>Our Collaborators</h2>
+        <div class="collaborators-content">
+            <div class="collaborator">
+                <img src="https://mail.google.com/mail/u/0?ui=2&ik=ffd818b2e1&attid=0.1&permmsgid=msg-f:1807435669389029773&th=19154d2a444db18d&view=att&disp=safe" alt="Collaborator 1">
+                <h3> Mr. COLLINS  KENECHUKWU ARALU </h3>
+                <p>Chief CHAIRMAN </p>
+            </div>
+            <div class="collaborator">
+                <img src="https://mail.google.com/mail/u/0?ui=2&ik=ffd818b2e1&attid=0.1&permmsgid=msg-f:1807432874123352939&th=19154a9f717c5b6b&view=att&disp=safe" alt="Collaborator 2">
+                <h3>BARR GOODLUCK NWANYIOMA ONYEKWERE </h3>
+                <p>TRUSTEE_SECRETARY</p>
+                <P> CONTACT: +234 7067406322</P>
+            </div>
+            <div class="collaborator">
+                <img src="https://mail.google.com/mail/u/0?ui=2&ik=ffd818b2e1&attid=0.1&permmsgid=msg-f:1807432860677806673&th=19154a9c50119a51&view=att&disp=safe" alt="Collaborator 3">
+                <h3> VICTOR M. TEMILE</h3>
+                <p>ICT DIRECTOR</p>
+                <P> CONTACT: +234 8146804482</P>
+            </div>
+        </div>
+    </div>
+</section>
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="footer-top">
