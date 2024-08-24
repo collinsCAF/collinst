@@ -150,6 +150,68 @@ background-color: #f2f2f2;
 background-color: #f1f1f1;
 }
 
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+/* Responsive Styles */
+@media (max-width: 600px) {
+  table, thead, tbody, th, td, tr {
+      display: block;
+  }
+
+  thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+  }
+
+  tr {
+      margin-bottom: 15px;
+  }
+
+  td {
+      border: none;
+      position: relative;
+      padding-left: 50%;
+      text-align: right;
+  }
+
+  td:before {
+      position: absolute;
+      left: 15px;
+      width: 45%;
+      padding-right: 10px;
+      white-space: nowrap;
+      text-align: left;
+      font-weight: bold;
+  }
+
+td:nth-of-type(1):before     { content: "s/n"; }
+  td:nth-of-type(2):before { content: "Bank"; }
+  td:nth-of-type(3):before { content: "Account Name"; }
+  td:nth-of-type(4):before { content: "Account Number"; }
+  td:nth-of-type(5):before { content: "Currency"; }
+}
+
 </style>
   
 </head>
@@ -601,27 +663,31 @@ background-color: #f1f1f1;
           <span class="close-btn">&times;</span>
           <div class="container">
               <h1>Make Your Donation</h1>
-              <table id="data-table" style="width: 100%; border-collapse: collapse;">
-            <thead>
-                <tr>
-                    <th style="border: 1px solid #ddd; padding: 12px; background-color: #4CAF50; color: white;">s/n</th>
-                    <th style="border: 1px solid #ddd; padding: 12px; background-color: #4CAF50; color: white;">Bank</th>
-                    <th style="border: 1px solid #ddd; padding: 12px; background-color: #4CAF50; color: white;">Account Name</th>
-                    <th style="border: 1px solid #ddd; padding: 12px; background-color: #4CAF50; color: white;">Account Number</th>
-                    <th style="border: 1px solid #ddd; padding: 12px; background-color: #4CAF50; color: white;">Currency</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr style="background-color: #f2f2f2;">
-                    <td style="border: 1px solid #ddd; padding: 12px; text-align: left;">1</td>
-                    <td style="border: 1px solid #ddd; padding: 12px; text-align: left;">Zenith Bank</td>
-                    <td style="border: 1px solid #ddd; padding: 12px; text-align: left;">Collins Aralu Foundation</td>
-                    <td style="border: 1px solid #ddd; padding: 12px; text-align: left;">1312542352</td>
-                    <td style="border: 1px solid #ddd; padding: 12px; text-align: left;">Naira</td>
-                </tr>
-                <!-- Data will be dynamically inserted here -->
-            </tbody>
-        </table>
+              <table id="data-table">
+                <thead>
+                    <tr>
+                        <th>s/n</th>
+                        <th>Bank </th>
+                        <th> Account Name</th>
+                        <th>Account Number</th>
+                        <th>Currency</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Zenith Bank  </td>
+                            <td>Collins Aralu Foundation </td>
+                            <td>1312542352</td>
+                            <td> Naira </td>
+                        </tr>
+    
+                    </tbody>
+                    
+                    <!-- Data will be dynamically inserted here -->
+                </tbody>
+            </table>
               <h1>THANKS FOR YOUR SUPPORT!</h1>
           </div>
       </div>
