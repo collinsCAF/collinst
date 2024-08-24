@@ -601,26 +601,27 @@ background-color: #f1f1f1;
           <span class="close-btn">&times;</span>
           <div class="container">
               <h1>Make Your Donation</h1>
-              <table id="data-table">
-                  <thead>
-                      <tr>
-                          <th>s/n</th>
-                          <th>Bank</th>
-                          <th>Account Name</th>
-                          <th>Account Number</th>
-                          <th>Currency</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      <tr>
-                          <td>1</td>
-                          <td>Zenith Bank</td>
-                          <td>Collins Aralu Foundation</td>
-                          <td>1312542352</td>
-                          <td>Naira</td>
-                      </tr>
-                  </tbody>
-              </table>
+              <table id="data-table" style="width: 100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="border: 1px solid #ddd; padding: 12px; background-color: #4CAF50; color: white;">s/n</th>
+                    <th style="border: 1px solid #ddd; padding: 12px; background-color: #4CAF50; color: white;">Bank</th>
+                    <th style="border: 1px solid #ddd; padding: 12px; background-color: #4CAF50; color: white;">Account Name</th>
+                    <th style="border: 1px solid #ddd; padding: 12px; background-color: #4CAF50; color: white;">Account Number</th>
+                    <th style="border: 1px solid #ddd; padding: 12px; background-color: #4CAF50; color: white;">Currency</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="background-color: #f2f2f2;">
+                    <td style="border: 1px solid #ddd; padding: 12px; text-align: left;">1</td>
+                    <td style="border: 1px solid #ddd; padding: 12px; text-align: left;">Zenith Bank</td>
+                    <td style="border: 1px solid #ddd; padding: 12px; text-align: left;">Collins Aralu Foundation</td>
+                    <td style="border: 1px solid #ddd; padding: 12px; text-align: left;">1312542352</td>
+                    <td style="border: 1px solid #ddd; padding: 12px; text-align: left;">Naira</td>
+                </tr>
+                <!-- Data will be dynamically inserted here -->
+            </tbody>
+        </table>
               <h1>THANKS FOR YOUR SUPPORT!</h1>
           </div>
       </div>
@@ -801,7 +802,38 @@ background-color: #f1f1f1;
   loop:true,
 });
   </script>
-  <script>
+  <script src="script.js">
+        // script.js
+
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+    const formMessage = document.getElementById('form-message');
+
+    // Simple validation
+    if (!name || !email || !message) {
+        formMessage.textContent = 'All fields are required!';
+        return;
+    }
+
+    // Email validation using a simple regex
+    const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,6}$/;
+    if (!emailPattern.test(email)) {
+        formMessage.textContent = 'Please enter a valid email address!';
+        return;
+    }
+
+    // Clear the form and show success message
+    formMessage.style.color = 'green';
+    formMessage.textContent = 'Form submitted successfully!';
+    document.getElementById('contact-form').reset();
+});
+
+    </script>
+  <script >
     // Get the modals
     // Get the modals
     const formModal = document.getElementById("formModal");
