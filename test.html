@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Sankalpa</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/index.css" rel="stylesheet">
+
+  <style>
+    #openContactModalBtn, #openDataModalBtn {
+      padding: 15px 30px;
+      margin: 10px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    #openContactModalBtn:hover, #openDataModalBtn:hover {
+      background-color: #0056b3;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      max-width: 90%;
+      width: 500px;
+      box-sizing: border-box;
+      animation: slide-down 0.4s ease-out;
+    }
+
+    @keyframes slide-down {
+      from { transform: translateY(-30%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      margin-top: -10px;
+      margin-right: -10px;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #555;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-sizing: border-box;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #007BFF;
+      box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-size: 16px;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #218838;
+    }
+
+    #form-message {
+      margin-top: 15px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 800px;
+      margin: auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0 auto;
+    }
+
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    @media (max-width: 600px) {
+      .modal-content {
+        padding: 15px;
+        width: 100%;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+
+      label {
+        font-size: 14px;
+      }
+
+      input, textarea, button[type="submit"] {
+        font-size: 14px;
+      }
+
+      #openContactModalBtn, #openDataModalBtn {
+        padding: 10px 20px;
+        font-size: 14px;
+      }
+
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+
+      tr {
+        margin-bottom: 15px;
+      }
+
+      td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+        text-align: right;
+      }
+
+      td:before {
+        position: absolute;
+        left: 15px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+      }
+
+      td:nth-of-type(1):before { content: "s/n"; }
+      td:nth-of-type(2):before { content: "Bank"; }
+      td:nth-of-type(3):before { content: "Account Name"; }
+      td:nth-of-type(4):before { content: "Account Number"; }
+      td:nth-of-type(5):before { content: "Currency"; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+
+      <div class="logo me-auto">
+        <h1><a href="index.html"> <img src="./assets/img/CAFLOGO1.jpeg">  </a></h1>
+      </div>
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto active" href="index.html">HOME</a></li>
+          <li><a class="nav-link scrollto" href="about.html">ABOUT US</a></li>
+          <li><a class="nav-link scrollto" href="activities.html">ACTIVITIES</a></li>
+          <li><a class="nav-link scrollto " href="donation.html">DONATE</a></li>
+          <li><a class="nav-link scrollto" href="contact.html">CONTACT US</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+      <div class="header-social-links d-flex align-items-center">
+        <a href="https://x.com/CollinsAra53500" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=61561816204351" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.tiktok.com/@caf.14?is_from_webapp=1&sender_device=pc" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+      </div>
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex flex-column justify-content-center">
+    <div class="container">
+      <h1>Welcome to <span>Sankalpa</span></h1>
+      <h2>We are here to make a difference</h2>
+      <a href="#about" class="btn-get-started scrollto">Get Started</a>
+    </div>
+  </section><!-- End Hero -->
+
+  <div class="container">
+    <div style="display: flex; justify-content: center; align-items: center; min-height: 80vh;">
+      <center>
+        <form style="width: 100%; max-width: 600px; padding: 20px; border-radius: 10px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); background: rgba(255, 255, 255, 0.8);" id="myForm" action="https://formspree.io/f/xayzpqkj" method="POST">
+          <h2>DONATE TO US</h2>
+
+          <div style="margin-bottom: 20px;">
+            <input type="email" id="email" name="email" placeholder="Your email address" required>
+          </div>
+
+          <div style="margin-bottom: 20px;">
+            <input type="number" id="amount" name="amount" placeholder="Enter the amount you want to donate" required>
+          </div>
+
+          <button id="openDataModalBtn" type="button">Account Details</button>
+          <button id="openContactModalBtn" type="button">Contact Us</button>
+
+          <div id="form-message"></div>
+        </form>
+      </center>
+    </div>
+  </div>
+
+  <!-- Contact Us Modal -->
+  <div id="contactModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeContactModalBtn">&times;</span>
+      <h2>Contact Us</h2>
+      <form action="https://formspree.io/f/xayzpqkj" method="POST">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Account Details Modal -->
+  <div id="dataModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeDataModalBtn">&times;</span>
+      <h2>Account Details</h2>
+      <div class="container">
+        <table>
+          <thead>
+            <tr>
+              <th>s/n</th>
+              <th>Bank</th>
+              <th>Account Name</th>
+              <th>Account Number</th>
+              <th>Currency</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>First Bank</td>
+              <td>Charity Aid Foundation</td>
+              <td>1234567890</td>
+              <td>USD</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Access Bank</td>
+              <td>Charity Aid Foundation</td>
+              <td>0987654321</td>
+              <td>NGN</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- Custom JS for Modals -->
+  <script>
+    document.getElementById('openContactModalBtn').addEventListener('click', function() {
+      document.getElementById('contactModal').style.display = 'flex';
+    });
+
+    document.getElementById('closeContactModalBtn').addEventListener('click', function() {
+      document.getElementById('contactModal').style.display = 'none';
+    });
+
+    document.getElementById('openDataModalBtn').addEventListener('click', function() {
+      document.getElementById('dataModal').style.display = 'flex';
+    });
+
+    document.getElementById('closeDataModalBtn').addEventListener('click', function() {
+      document.getElementById('dataModal').style.display = 'none';
+    });
+
+    window.addEventListener('click', function(event) {
+      if (event.target === document.getElementById('contactModal')) {
+        document.getElementById('contactModal').style.display = 'none';
+      }
+      if (event.target === document.getElementById('dataModal')) {
+        document.getElementById('dataModal').style.display = 'none';
+      }
+    });
+  </script>
+
+</body>
+
+</html>

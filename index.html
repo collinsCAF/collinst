@@ -27,7 +27,220 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
-  
+  <style>
+    #openContactModalBtn, #openDataModalBtn {
+      padding: 15px 30px;
+      background-color: #10c236;
+      color: #fff;
+      border: none;
+      border-radius: 100px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      width:300px
+    }
+
+    #openContactModalBtn:hover, #openDataModalBtn:hover {
+      background-color: #10c236;
+      padding: 15px 30px;
+      
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      max-width: 90%;
+      width: 500px;
+      box-sizing: border-box;
+      animation: slide-down 0.4s ease-out;
+    }
+
+    @keyframes slide-down {
+      from { transform: translateY(-30%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      margin-top: -10px;
+      margin-right: -10px;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #555;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-sizing: border-box;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #007BFF;
+      box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-size: 16px;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #218838;
+    }
+
+    #form-message {
+      margin-top: 15px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .containerv {
+      width: 100%;
+      max-width: 800px;
+      margin: auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0 auto;
+    }
+
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    @media (max-width: 600px) {
+      .modal-content {
+        padding: 15px;
+        width: 100%;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+
+      label {
+        font-size: 14px;
+      }
+
+      input, textarea, button[type="submit"] {
+        font-size: 14px;
+      }
+
+      #openContactModalBtn, #openDataModalBtn {
+        padding: 10px 20px;
+        font-size: 14px;
+      }
+
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+
+      tr {
+        margin-bottom: 15px;
+      }
+
+      td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+        text-align: right;
+      }
+
+      td:before {
+        position: absolute;
+        left: 15px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+      }
+
+      td:nth-of-type(1):before { content: "s/n"; }
+      td:nth-of-type(2):before { content: "Bank"; }
+      td:nth-of-type(3):before { content: "Account Name"; }
+      td:nth-of-type(4):before { content: "Account Number"; }
+      td:nth-of-type(5):before { content: "Currency"; }
+    }
+  </style>
 </head>
 <body>
 
@@ -136,13 +349,14 @@
 </section>
     <!-- End of type writer-->
 
-    <div class="row">
-      <div class="col-lg-6 col-md-6">
-        <button class="btn btn-success" id="learnmore">LEARN MORE</button>
+    <div class="row" >
+      <div class="col-lg-6 col-md-6" >
+        <button class="btn btn-success " id="openDataModalBtn">LEARN MORE</button>
       </div>    
       <div class="col-log-6 col-md-6">
-        <button class="btn btn-success" id="learnmore">DONATE</button>
+        <button class="btn btn-success" id="openDataModalBtn">DONATE</button>
       </div>  
+      
     </div>
 
 
@@ -335,10 +549,10 @@
           <button id="bt"  class="btn btn-success">GIVE DONATION</button>
        </div>
        <div class="col-lg-3 col-md-6" id="btn">
-        <button id="bt"  class="btn btn-success">BECOME A VOLUNTEER</button>
+        <button id="openContactModalBtn"  class="btn btn-success">BECOME A VOLUNTEER</button>
      </div>
      <div class="col-lg-3 col-md-6" id="btn">
-      <button id="bt" class="btn btn-success">STAY TOGETHER</button>
+      <button id="bt"  class="btn btn-success">STAY TOGETHER</button>
    </div>
     </section>
 
@@ -451,7 +665,7 @@
 
       </div>
     </section>
-    
+  
 
 
   </main><!-- End #main -->
@@ -459,9 +673,65 @@
 
    
 
-        </div>
-      </div>
-    </div>
+
+          <div id="contactModal" class="modal">
+            <div class="modal-content">
+              <span class="close" id="closeContactModalBtn">&times;</span>
+              <h2>Contact Us</h2>
+              <form action="https://formspree.io/f/xayzpqkj" method="POST">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                  <label for="message">Message</label>
+                  <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+              </form>
+            </div>
+          </div>
+        
+          <!-- Account Details Modal -->
+          <div id="dataModal" class="modal">
+            <div class="modal-content">
+              <span class="close" id="closeDataModalBtn">&times;</span>
+              <h2>Account Details</h2>
+              <div class="containerv">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>s/n</th>
+                      <th>Bank</th>
+                      <th>Account Name</th>
+                      <th>Account Number</th>
+                      <th>Currency</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>First Bank</td>
+                      <td>Charity Aid Foundation</td>
+                      <td>1234567890</td>
+                      <td>USD</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>Access Bank</td>
+                      <td>Charity Aid Foundation</td>
+                      <td>0987654321</td>
+                      <td>NGN</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
 
     
   <!-- ======= Footer ======= -->
@@ -547,7 +817,74 @@
   </script>
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script>
+    // Get the modals and the buttons that open them
+    const contactModal = document.getElementById('contactModal');
+    const dataModal = document.getElementById('dataModal');
+    const openContactModalBtn = document.getElementById('openContactModalBtn');
+    const openDataModalBtn = document.getElementById('openDataModalBtn');
+    const closeButtons = document.getElementsByClassName('close');
 
+    // When the user clicks the buttons, open the respective modals
+    openContactModalBtn.onclick = function() {
+        contactModal.style.display = 'flex';
+    }
+
+    openDataModalBtn.onclick = function() {
+        dataModal.style.display = 'flex';
+    }
+
+    // When the user clicks on <span> (x), close the modals
+    Array.from(closeButtons).forEach(btn => {
+        btn.onclick = function() {
+            btn.closest('.modal').style.display = 'none';
+        }
+    });
+
+    // When the user clicks anywhere outside of the modals, close them
+    window.onclick = function(event) {
+        if (event.target == contactModal) {
+            contactModal.style.display = 'none';
+        } else if (event.target == dataModal) {
+            dataModal.style.display = 'none';
+        }
+    }
+</script>
+  <script>
+    // Get the modal and the button that opens it
+
+    // When the user clicks anywhere outside of the modal, close it
+
+    // Handle form submission
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+        const formMessage = document.getElementById('form-message');
+
+        // Simple validation
+        if (!name || !email || !message) {
+            formMessage.style.color = 'red';
+            formMessage.textContent = 'All fields are required!';
+            return;
+        }
+
+        // Email validation using a simple regex
+        const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,6}$/;
+        if (!emailPattern.test(email)) {
+            formMessage.style.color = 'red';
+            formMessage.textContent = 'Please enter a valid email address!';
+            return;
+        }
+
+        // Clear the form and show success message
+        formMessage.style.color = 'green';
+        formMessage.textContent = 'Form submitted successfully!';
+        document.getElementById('contact-form').reset();
+    });
+</script>
 </body>
 
 </html>
